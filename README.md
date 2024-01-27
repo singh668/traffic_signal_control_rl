@@ -1,1 +1,1 @@
-# traffic_signal_control_rl
+The purpose of the project is to use a model-based approach and reinforcement learning to optimize traffic signal control systems in order to improve safety and mobility at signalized intersections. We will maintain an emphasis on different metrics such as traffic flow and wait times with the goal of increasing flow and decreasing wait times.
