@@ -1,3 +1,4 @@
+package src;
 /**
  * Simple Atm
  * Note: A static method belongs to the class. A non-static method belongs to an instance of the class.
