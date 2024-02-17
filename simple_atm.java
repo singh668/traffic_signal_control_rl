@@ -12,7 +12,7 @@ public class simple_atm {
     public int total_int = 25000;
 
     public static void introSequence() {
-        String intro_question = "How can I help you?\n" + 
+        String intro_question = "Howcan I help you?\n" + 
         "1: Deposit Amount\n" + 
         "2: Withdraw Amount\n" + 
         "3: Exit";
