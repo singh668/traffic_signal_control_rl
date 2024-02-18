@@ -13,11 +13,12 @@ public class simple_atm {
     public int total_int = 25000;
 
     public static void introSequence() {
-        String intro_question = "Howcan I help you?\n" + 
-        "1: Deposit Amount\n" + 
-        "2: Withdraw Amount\n" + 
-        "3: Exit";
-        System.out.println(intro_question);
+        String intro_q = "How can I help you today?\n" + 
+        "1: Login to your account.\n" + 
+        "2: Create an account.\n" + 
+        "3: Change your password.\n" + 
+        "4: Exit."; 
+        System.out.println(intro_q);
         int func_answer;
         try {
             func_answer = sc.nextInt();
@@ -26,6 +27,46 @@ public class simple_atm {
             System.out.println("Improper Response. Please try again.");
             sc.nextLine();
             introSequence();
+            return;
+        }
+        processIntroResponse(func_answer);
+    }
+
+    public static void processIntroResponse(int response) {
+        switch (response) {
+            case 1:
+                loginSequence();
+                break;
+            case 2:
+                createAccount();
+            default:
+                break;
+        }
+    }
+
+    public static void loginSequence() {
+
+    }
+
+    public static void createAccount () {
+
+    }
+
+
+    public static void depositAndWithdrawSequence() {
+        String service = "How can I help you?\n" + 
+        "1: Deposit Amount\n" + 
+        "2: Withdraw Amount\n" + 
+        "3: Exit";
+        System.out.println(service);
+        int func_answer;
+        try {
+            func_answer = sc.nextInt();
+            sc.nextLine();
+        } catch (InputMismatchException e ) {
+            System.out.println("Improper Response. Please try again.");
+            sc.nextLine();
+            depositAndWithdrawSequence();
             return;
         }
         responseConfirmationIntro(func_answer);
@@ -51,7 +92,7 @@ public class simple_atm {
                 break;
             default:
                 System.out.println("Incorrect response. Please try again");
-                introSequence();
+                depositAndWithdrawSequence();
                 break;
         }
     }
@@ -62,13 +103,13 @@ public class simple_atm {
         }
         else {
             System.out.println("Please try again");
-            introSequence();
+            depositAndWithdrawSequence();
         }
     }
     public static void main(String[] args) {
         sc = new Scanner(System.in);
-        System.out.println("Welcome to an ATM machine!");
-        introSequence();
+        System.out.println("Welcome to Global Bank!");
+        depositAndWithdrawSequence();
         sc.close();
     }
 }
