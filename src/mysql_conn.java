@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class mysql_conn {
     public static ResultSet getMYSQL(String schema, String query) throws DBException {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + schema, "root", getPwd());
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + schema, "root", "encrypted_password");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             return resultSet;
@@ -19,20 +19,19 @@ public class mysql_conn {
         }
     }
 
-    public static String getPwd() {
+    public static String getMYSQLPwd() {
         return "";
     }
 
     public static void main(String[] args) {
         try {
-            Connection connection = DriverManager .getConnection("jdbc:mysql://localhost:3306/banking", "root", "replace_with_encryption");
-            Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery("select * from banking.users");
+            ResultSet result = getMYSQL("banking", "select * from users");
             while (result.next()) {
                 System.out.println(result.getString("firstname"));
-            }
+            } 
         } catch (Exception e) {
-            e.printStackTrace();
-        }
+                e.printStackTrace();
+            }
+        
     }
 }
